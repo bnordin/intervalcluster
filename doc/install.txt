@@ -1,0 +1,13 @@
+Install Matlab
+Install Intlab
+	install path is INTLAB (substitute INTLAB with the real path)
+	modify INTLAB/startup.m, set the "cd" path to INTLAB
+	in matlab, add INTLAB to the path (File->Set Path). Save the path.
+	restart matlab and wait... it will ask you to press Enter to start, but it seems to always freeze, so kill matlab and restart
+Place the source in INTERVALCLUSTER (substitute INTERVALCLUSTER with the real path)
+	in matlab, add INTERVALCLUSTER/src and INTERVALCLUSTER/lib to the path (File->Set Path). Save the path.
+Download extrema and place in INTERVALCLUSTER/lib/
+Download the FCPS data
+
+If you wish to use the run scripts, edit INTERVALCLUSTER/src/+ikmeans/setupGlobal.m
+	
