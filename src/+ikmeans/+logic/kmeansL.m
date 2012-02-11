@@ -166,24 +166,22 @@ methods(Static)
 		clusters = sourceL.convertValue(r,zeros(nCluster,nDim));
 		
 		% loop through each cluster and dimension
-		for c = 1:nCluster
-			for d = 1:nDim
-				% sum up the data coordinate values and count them
-				nMember = 0;
-				coord = 0.0;
-				for p = 1:nPoints
-					if (membership(p) == c)
-						nMember = nMember+1;
-						coord = coord + data(p,d);
-					end %if
-				end %for p
+		for d = 1:nDim
+			% sum up the data coordinate values and count them
+			nMember = zeros(nCluster,1);
+			coord = zeros(nCluster,1);
+			for p = 1:nPoints
+				nMember(membership(p)) = nMember(membership(p))+1;
+				coord(membership(p)) = coord(membership(p)) + data(p,d);
+			end %for p
 
+			for c = 1:nCluster
 				if (nMember > 0)
 					% the new cluster-dimension value is the sum / the count
-					clusters(c,d) = coord/nMember;
+					clusters(c,d) = coord(c)/nMember(c);
 				end %if
-			end %for d
-		end %for c
+			end %for c
+		end %for d
 	end % function
 
 	% ======================================================================
