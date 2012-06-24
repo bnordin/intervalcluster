@@ -51,6 +51,9 @@ properties
 	%> The minimum change allowed before K-Means stops
 	epsilon
 
+	%> The radius to use when widening centroids
+	radius
+
 	%> The dataType of the information read from the source file
 	%> @see ikmeans.entity.dataType
 	sourceType

@@ -111,6 +111,7 @@ methods(Static)
 		r=logL.info(r,logt,sprintf('Parameter randSeed       = %9.0f',r.parameters.randSeed));
 		r=logL.info(r,logt,sprintf('Parameter iterations     = %9.0f',r.parameters.iterations));
 		r=logL.info(r,logt,sprintf('Parameter epsilon        = %9.9f',r.parameters.epsilon));
+		r=logL.info(r,logt,sprintf('Parameter radius         = %9.9f',r.parameters.radius));
 		r=logL.info(r,logt,sprintf('Parameter sourceType     = %s'   ,dataType.toString(r.parameters.sourceType)));
 		r=logL.info(r,logt,sprintf('Parameter dataType       = %s'   ,dataType.toString(r.parameters.dataType)));
 		r=logL.info(r,logt,sprintf('Parameter initType       = %s'   ,initType.toString(r.parameters.initType)));
@@ -135,7 +136,7 @@ methods(Static)
 		% initialize centroids
 		r = centroidL.initCentroids(r);
 		if (r.parameters.dataType == dataType.WIDEINTERVAL)
-			r = centroidL.widenCentroids(r,0.1);
+			r = centroidL.widenCentroids(r,r.parameters.radius);
 		end % if
 		
 		% run K-Means
