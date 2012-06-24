@@ -168,8 +168,8 @@ methods(Static)
 		% loop through each cluster and dimension
 		for d = 1:nDim
 			% sum up the data coordinate values and count them
-			nMember = zeros(nCluster,1);
-			coord = zeros(nCluster,1);
+			nMember = sourceL.convertValue(r,zeros(nCluster,1));
+			coord = sourceL.convertValue(r,zeros(nCluster,1));
 			for p = 1:nPoints
 				nMember(membership(p)) = nMember(membership(p))+1;
 				coord(membership(p)) = coord(membership(p)) + data(p,d);
