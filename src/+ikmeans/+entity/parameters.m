@@ -54,6 +54,9 @@ properties
 	%> The radius to use when widening centroids
 	radius
 
+	%> Widen on each interation, not just initialization
+	widenAlways
+
 	%> The dataType of the information read from the source file
 	%> @see ikmeans.entity.dataType
 	sourceType

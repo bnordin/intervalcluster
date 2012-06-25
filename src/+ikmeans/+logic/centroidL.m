@@ -378,7 +378,7 @@ warning('try increasing blocks');
 	%> @see ikmeans.entity.run
 	%> @see ikmeans.entity.centroidSet
 	%> @param r Experiment run information
-	%> @param radius The raduis percent to place between the interval bounds and midpoint
+	%> @param radius The radius percent to place between the interval bounds and midpoint
 	%> @retval r Experiment run information
 	% ======================================================================
 	function r = widenCentroids(r,radius)
@@ -396,7 +396,7 @@ warning('try increasing blocks');
 		[p,n,e] = fileparts(fullfile);
 
 		% widen the radius of the intervals
-		r.project.initialCentroids.values = midrad(mid(r.project.initialCentroids.values),radius);
+		[r,r.project.initialCentroids.values] = centroidL.widenCentroidsSimple(r,radius,r.project.initialCentroids.values);
 
 		% save the updated centroids and change the datatype
 		r.project.centroids.values = r.project.initialCentroids.values;
@@ -415,6 +415,23 @@ warning('try increasing blocks');
 		r = timeL.endTime(r,logt);
 		r = logL.trace(r,logt,'centroidL.widenCentroids() complete');
 	end % function
+
+	% ======================================================================
+	%> @brief Increases the radius of centroid intervals without using or changing runtime information
+	%> @details Increases the radius of centroid intervals without using or changing runtime information
+	%>
+	%> @see ikmeans.entity.run
+	%> @param r Experiment run information
+	%> @param radius The radius percent to place between the interval bounds and midpoint
+	%> @param centroids The centroids to widen
+	%> @retval r Experiment run information
+	%> @retval centroids The newly widened centroids
+	% ======================================================================
+	function [r,centroids] = widenCentroidsSimple(r,radius,centroids)
+		% widen the radius of the intervals
+		centroids = midrad(mid(centroids),radius);
+	end % function
+
 
 end % methods
 

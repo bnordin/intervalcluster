@@ -17,6 +17,7 @@ p.sourcePath=strcat(dataPath,filesep);
 p.iterations = 10;
 p.epsilon = 0.1;
 p.radius = 0.1;
+p.widenAlways = 0;
 p.sourceType = ikmeans.entity.dataType.STANDARD;
 p.qualityType = ikmeans.entity.qualityType.JACCARD;
 

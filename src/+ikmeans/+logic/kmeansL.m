@@ -182,6 +182,11 @@ methods(Static)
 				end %if
 			end %for c
 		end %for d
+		
+		if (r.parameters.widenAlways == 1)
+			[r,clusters] = centroidL.widenCentroidsSimple(r,r.parameters.radius,clusters);
+		end %if
+		
 	end % function
 
 	% ======================================================================
