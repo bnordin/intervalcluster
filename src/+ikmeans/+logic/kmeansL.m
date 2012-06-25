@@ -183,7 +183,7 @@ methods(Static)
 			end %for c
 		end %for d
 		
-		if (r.parameters.widenAlways == 1)
+		if (r.parameters.dataType == dataType.WIDEINTERVAL && r.parameters.widenAlways == 1)
 			[r,clusters] = centroidL.widenCentroidsSimple(r,r.parameters.radius,clusters);
 		end %if
 		
